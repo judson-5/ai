@@ -11,7 +11,8 @@ def main():
     candles = [Candle(start + timedelta(minutes=i), 100+i*0.1, 100.2+i*0.1,
                       99.8+i*0.1, 100+i*0.1, 1000) for i in range(40)]
     print("SYNTHETIC trend signal:", signal(candles))
-    print("PAPER ONLY:", PaperPortfolio().open_paper_credit_spread("SPY", 5, 1))
+    print("PAPER ONLY:", PaperPortfolio().open_paper_credit_spread("SPY", 1, 0.5))
 
 if __name__ == "__main__":
     main()
+

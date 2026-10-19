@@ -4,3 +4,10 @@ __pycache__/
 .venv/
 .pytest_cache/
 *.log
+.env.*
+!.env.example
+*.pem
+*.key
+data/private/
+reports/
+
