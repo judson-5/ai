@@ -2,6 +2,33 @@
 
 Two independent Python research modules. **No live order or wagering API is implemented.** This public repository contains no secrets.
 
+## New research applications
+
+The modular applications in `src/` add current-data intake, explicit evidence
+validation, options selection, persistent paper risk management and quote replay:
+
+- **PrizePicks:** `python -m prizepicks_research <snapshot.json>`; accepts
+  authorized current PrizePicks snapshots, optionally refreshes two originating
+  sportsbooks through The Odds API, excludes promotions/boosts, and requires
+  at least 65% modeled hit probability. Missing evidence blocks recommendations.
+- **SPY/QQQ:** `python -m paper_trading analyze SPY`; Alpaca read-only market
+  data, EMA9/21, session VWAP, momentum and volume, long calls/puts or defined-risk
+  credit spreads, SQLite paper ledger, and actual-option-quote replay backtests.
+
+Install first with `python -m pip install -e .`, then run
+`python -m unittest discover -s tests -v`. There are no third-party runtime
+dependencies. Provider calls require environment credentials and subscriptions.
+
+See the **[installation, iPhone Codespaces operating guide, data contracts and
+limitations](docs/RESEARCH_AGENTS.md)** and [secret configuration](docs/SECRETS.md).
+The prop model is a conservative uncalibrated research heuristic. PrizePicks
+entry EV remains unavailable without actual joint outcomes and payout rules;
+sportsbook reference EV is labeled separately. Live authenticated provider calls
+have not been tested without credentials.
+
+The original `agents/` and `player_prop_v2/` code remains unchanged. The sections
+below describe those legacy offline tools, not the new applications.
+
 ## Quick start
 Python 3.11+:
 ```bash
@@ -28,7 +55,7 @@ Configure authorized read-only data providers, then extend adapters without modi
 
 Open https://github.com/judson-5/ai in Safari, then **Code > Codespaces > Create codespace on main**. Use **Request Desktop Website** if the controls are hidden. GitHub account eligibility, capacity, and billing prompts are managed by GitHub. This configuration does not create a codespace or accept paid usage on your behalf.
 
-The development container includes Python 3.12 and runs the test suite on creation. No third-party Python packages are required. In the Codespaces terminal run:
+The development container includes Python 3.12, installs the project, and runs the test suite on creation. No third-party runtime packages are required. In the Codespaces terminal run:
 
 ```sh
 python -m unittest discover -s tests -v
@@ -54,7 +81,7 @@ python -m agents.csv_report --history data/private/game_logs.csv --props data/pr
 
 ## Keys and provenance
 
-See [secure secrets instructions](docs/SECRETS.md). Offline tests and examples need no `ODDS_API_KEY`; no live provider adapter is included.
+See [secure secrets instructions](docs/SECRETS.md). Offline tests and legacy examples need no keys; the new applications include read-only provider adapters.
 
 Installation preserves the source already present in `judson-5/ai` at commit `171b9b10f0d6882573b52bdca4b38f7325ec0f6c` and adds a CSV interface, templates, Codespaces configuration, and documentation. The paper demo now uses a spread within its simulated risk cap. The earlier ChatGPT conversation exposed only unresolved content references and no downloadable attachments, so its original ZIP could not be retrieved or compared. This is not a verified restoration of that missing archive.
 
