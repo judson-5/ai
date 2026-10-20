@@ -1,13 +1,15 @@
 # Secrets and data access
 
-The installed research tools run offline and require no key. There is no Odds API adapter, credential validation request, sportsbook integration, or automatic wagering.
+Legacy tools and all offline tests require no keys. The new `src/` applications
+include read-only The Odds API and Alpaca market-data adapters. No live-order or
+wager-submission integration exists.
 
-If you later add an authorized read-only Odds API adapter:
+For the read-only data adapters:
 
-1. Open https://github.com/settings/codespaces and create a Codespaces secret named `ODDS_API_KEY`.
+1. Open https://github.com/settings/codespaces and create `ODDS_API_KEY` for sportsbook data, and `ALPACA_API_KEY` plus `ALPACA_SECRET_KEY` for Alpaca market data. Use separate least-privilege/research credentials where supported. OPRA/SIP feeds require appropriate provider entitlements.
 2. Grant repository access only to `judson-5/ai`. Paste the credential directly into GitHub's secret field.
 3. Restart an existing codespace so it receives the secret.
-4. Application code should read `os.environ.get("ODDS_API_KEY")`. Never print it or include it in exception messages, request URLs in logs, source, CSV files, reports, screenshots, or chat.
+4. Application code reads environment variables only. Never print keys or include them in exception messages, request URLs in logs, source, CSV files, reports, screenshots, or chat. The Odds API authenticates in the query string; transport errors deliberately redact URLs. Redirects are disabled to prevent forwarding credentials to another host.
 
 An Actions secret does not automatically become a Codespaces secret. The connector used for this installation cannot create or inspect account secrets. Do not send the key to the assistant. No key was requested, invented, or added by this installation.
 

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "REPLACE",
+    "player": "REPLACE",
+    "player_id": "REPLACE",
+    "event_id": "REPLACE",
+    "sport": "NBA",
+    "market": "player_points",
+    "period": "full_game",
+    "line": null,
+    "side": "over",
+    "source": "https://replace-with-authorized-source.example",
+    "as_of": null,
+    "event_start": null,
+    "promotional": null,
+    "boosted": null,
+    "odds_event_id": "REPLACE_WITH_PROVIDER_EVENT_ID",
+    "odds_player_name": "REPLACE_WITH_EXACT_PROVIDER_NAME",
+    "context": {
+      "source": "https://replace-with-authorized-source.example",
+      "as_of": null,
+      "injury_status": null,
+      "lineup_status": null,
+      "projected_opportunities": null,
+      "opportunity_unit": "minutes",
+      "matchup_factor": null,
+      "matchup_notes": "REPLACE_WITH_SOURCED_ANALYSIS"
+    },
+    "game_logs": [],
+    "books": []
+  }
+]
