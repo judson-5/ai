@@ -1,0 +1,18 @@
+[
+  {
+    "id": "DEMO-ONLY",
+    "player": "Example Player",
+    "sport": "NBA",
+    "event_id": "EXAMPLE-ONLY",
+    "market": "points",
+    "period": "full_game",
+    "line": 20.5,
+    "side": "more",
+    "as_of": "2020-01-01T12:00:00+00:00",
+    "probability_lower": 0.7,
+    "books": [],
+    "prizepicks_verified": false,
+    "injury_cleared": false,
+    "model_calibrated": false
+  }
+]
